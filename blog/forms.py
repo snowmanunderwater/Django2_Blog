@@ -1,6 +1,8 @@
 from django import forms
-from .models import Tag, Post
 from django.core.exceptions import ValidationError
+
+from .models import Post, Tag
+
 
 class TagForm(forms.ModelForm):
     class Meta:
