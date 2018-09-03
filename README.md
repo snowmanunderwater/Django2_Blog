@@ -1,5 +1,6 @@
 # Django 2.0 Blog
 
+## Django 2.0.7 + Bootstrap 4
 
 ## Главная страница с постами:
 ![Django 2.0 Blog](https://raw.githubusercontent.com/snowmanunderwater/Django2_Blog/master/screenshots/Screenshot_Main.jpg)
@@ -27,7 +28,7 @@ paginator = Paginator(posts, 3)
 
 ---
 
-## Меню редактора:
+## "Плавающее" меню редактора:
 
 ![Django 2.0 Blog](https://raw.githubusercontent.com/snowmanunderwater/Django2_Blog/master/screenshots/Screenshot_Admin_panel.png)
 
