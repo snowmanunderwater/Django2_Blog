@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # User:
+    'blog',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,8 +44,6 @@ INSTALLED_APPS = [
     # Debug:
     'debug_toolbar',
 
-    # User:
-    'blog',
 ]
 
 INTERNAL_IPS = [

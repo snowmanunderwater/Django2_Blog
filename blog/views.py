@@ -26,15 +26,11 @@ def posts_list(request):
     else:
         posts = Post.objects.all()
 
-
     paginator = Paginator(posts, 3)
-
 
     # Возвращает значение страницы из GET запроса
     page_number = request.GET.get('page', 1)
-
     page = paginator.get_page(page_number)
-
     is_paginated = page.has_other_pages()
 
     if page.has_previous():
