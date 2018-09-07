@@ -30,6 +30,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = gen_slug(self.title)
+        print('>>>>>>>>>>>>>>>>>>>>>>> ARGS, KWARGS:', args, kwargs)
         super().save(*args, **kwargs)
 
     def get_delete_url(self):

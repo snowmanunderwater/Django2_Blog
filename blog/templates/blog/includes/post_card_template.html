@@ -1,6 +1,7 @@
 <div class="card mb-3">
     <div class="card-header">
-        {{ post.date_pub }}
+        <a class="mr-2">{{ post.author }}</a>
+        <small class="text-muted">{{ post.date_pub|date:"d F, Y" }}</small>
     </div>
     <div class="card-body">
         <h5 class="card-title">{{ post.title}}</h5>

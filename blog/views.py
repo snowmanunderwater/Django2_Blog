@@ -68,6 +68,11 @@ class PostCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     template = 'blog/post_create_form.html'
     raise_exception = True
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+
 
 class TagCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     model_form = TagForm

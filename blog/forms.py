@@ -31,13 +31,14 @@ class TagForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'slug', 'body', 'tags']
+        fields = ['title', 'slug', 'body', 'tags',]
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'slug': forms.Textarea (attrs={'class': 'form-control'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
             'tags': forms.SelectMultiple(attrs={'class': 'form-control'}),
+            #'author': forms.Select(attrs={'class': 'form-control'})
         }
 
     def clean_slug(self):
@@ -46,3 +47,7 @@ class PostForm(forms.ModelForm):
         if new_slug == 'create':
             raise ValidationError('Slug may not be "Create"')
         return new_slug
+
+    def clean_author_id(self):
+        author_id = 1
+        return author_id
