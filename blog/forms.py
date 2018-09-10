@@ -38,7 +38,6 @@ class PostForm(forms.ModelForm):
             'slug': forms.Textarea (attrs={'class': 'form-control'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
             'tags': forms.SelectMultiple(attrs={'class': 'form-control'}),
-            #'author': forms.Select(attrs={'class': 'form-control'})
         }
 
     def clean_slug(self):

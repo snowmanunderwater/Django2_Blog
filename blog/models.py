@@ -5,6 +5,7 @@ from django.shortcuts import reverse
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 
+
 def gen_slug(s):
     new_slug = slugify(s, allow_unicode=True)
     return new_slug + '-' + str(int(time()))
