@@ -31,8 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # User:
-    'blog',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # User:
+    'blog',
 
     # Debug:
     'debug_toolbar',

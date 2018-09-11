@@ -71,7 +71,6 @@ class PostCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-    
 
 
 class TagCreate(LoginRequiredMixin, ObjectCreateMixin, View):
@@ -92,6 +91,8 @@ class PostUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
     model_form = PostForm
     template = 'blog/post_update_form.html'
     raise_exception = True
+
+    
 
 
 class TagDelete(LoginRequiredMixin, ObjectDeleteMixin, View):

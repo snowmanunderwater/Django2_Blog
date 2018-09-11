@@ -39,7 +39,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0" action="{% url 'posts_list_url' %}">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
@@ -87,7 +87,7 @@
     
     {% if request.user.is_authenticated and request.user.is_staff %}
         <div class="admin-panel align-items-center">
-            <a href="/admin" class="btn btn-outline-info">Admin</a>
+            <a href="/admin" class="btn btn-outline-primary">Admin</a>
             {% block admin-panel %} {% endblock %}
         </div>
     {% endif %}

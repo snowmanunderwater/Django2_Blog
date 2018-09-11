@@ -18,6 +18,8 @@ class Post(models.Model):
     tags = models.ManyToManyField('Tag', blank=True, related_name='posts')
     date_pub = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_edited = models.BooleanField(default=False)
+
 
     def __str__(self):
         return 'id:{} - {}'.format(self.id, self.title)
@@ -31,11 +33,17 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = gen_slug(self.title)
-        print('>>>>>>>>>>>>>>>>>>>>>>> ARGS, KWARGS:', args, kwargs)
         super().save(*args, **kwargs)
 
     def get_delete_url(self):
         return reverse('post_delete_url', kwargs={'slug': self.slug})
+
+    def mark_is_edited(self, *args, **kwargs):
+        print('SELF >>>>>>>', self.is_edited)
+        self.is_edited = True
+        print('SELF end >>>>>>>', self.is_edited)
+        self.save
+
 
     # Подкласс для сортировки постов
     class Meta:
