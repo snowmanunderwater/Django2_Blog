@@ -18,10 +18,8 @@ def tags_list(request):
 def posts_list(request):
     search_query = request.GET.get('search', '')
     
-    # Q - позволяет искать по нескольким полям независимо друг от друга. title OR body
-    # По дефолту filter отдает title AND body
-    
     if search_query:
+        # Q - позволяет искать по нескольким полям независимо друг от друга. title OR body
         posts = Post.objects.filter(Q(title__icontains=search_query) | Q(body__icontains=search_query))
     else:
         posts = Post.objects.all()
@@ -91,8 +89,6 @@ class PostUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
     model_form = PostForm
     template = 'blog/post_update_form.html'
     raise_exception = True
-
-    
 
 
 class TagDelete(LoginRequiredMixin, ObjectDeleteMixin, View):

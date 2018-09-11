@@ -58,7 +58,7 @@ class ObjectUpdateMixin:
         obj = self.model.objects.get(slug__iexact=slug)
         bound_form = self.model_form(request.POST, instance=obj)
 
-        # Если пост редактировался, поднимается флаг is_edited = True        
+        # Если пост редактируется - поднимается флаг is_edited
         obj.mark_is_edited()
 
         if bound_form.is_valid():

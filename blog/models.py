@@ -39,13 +39,10 @@ class Post(models.Model):
         return reverse('post_delete_url', kwargs={'slug': self.slug})
 
     def mark_is_edited(self, *args, **kwargs):
-        print('SELF >>>>>>>', self.is_edited)
         self.is_edited = True
-        print('SELF end >>>>>>>', self.is_edited)
         self.save
 
 
-    # Подкласс для сортировки постов
     class Meta:
         ordering = ['-date_pub']
 
@@ -66,6 +63,5 @@ class Tag(models.Model):
     def get_delete_url(self):
         return reverse('tag_delete_url', kwargs={'slug': self.slug})
 
-    # Подкласс для сортировки тегов
     class Meta:
         ordering = ['title']
