@@ -1,5 +1,6 @@
-{% extends 'blog/base_blog.html' %}
 
+{% extends 'blog/base_blog.html' %}
+{% load static %}
 
 {% block title %}
     {{ post.title }} - {{ block.super }}
@@ -14,8 +15,9 @@
     <p>
         {{ post.body }}
     </p>
-    <p>
-        {{ post.is_edited }}
-    </p>
+    <article class="media content-section">
+
+        <img class="rounded-circle article-img" src="{{ MEDIA_URL }}{{ post.author.profile.image.url }}">
+    </article>
+
 {% endblock content %}
-    

@@ -17,6 +17,19 @@
     margin: 5px 0;
 }
 
-a.edit, a.delete {
-    display: none
+
+body, html {
+    height: 100%;
+}
+.bg {
+    /* The image used */
+    background-image: url(/static/patterns/topography.png);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
 }
