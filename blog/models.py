@@ -20,7 +20,6 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     is_edited = models.BooleanField(default=False)
 
-
     def __str__(self):
         return 'id:{} - {}'.format(self.id, self.title)
 
@@ -41,7 +40,6 @@ class Post(models.Model):
     def mark_is_edited(self, *args, **kwargs):
         self.is_edited = True
         self.save
-
 
     class Meta:
         ordering = ['-date_pub']
