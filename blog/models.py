@@ -8,26 +8,26 @@ from django.utils.text import slugify
 
 def gen_slug(s):
     new_slug = slugify(s, allow_unicode=True)
-    return new_slug + '-' + str(int(time()))
+    return new_slug + "-" + str(int(time()))
 
 
 class Post(models.Model):
     title = models.CharField(max_length=150, db_index=True)
     slug = models.SlugField(max_length=150, blank=True, unique=True)
     body = models.TextField(blank=True, db_index=True)
-    tags = models.ManyToManyField('Tag', blank=True, related_name='posts')
+    tags = models.ManyToManyField("Tag", blank=True, related_name="posts")
     date_pub = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     is_edited = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'id:{} - {}'.format(self.id, self.title)
+        return "id:{} - {}".format(self.id, self.title)
 
     def get_absolute_url(self):
-        return reverse('post_detail_url', kwargs={'slug': self.slug})
-    
+        return reverse("post_detail_url", kwargs={"slug": self.slug})
+
     def get_update_url(self):
-        return reverse('post_update_url', kwargs={'slug': self.slug})
+        return reverse("post_update_url", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -35,14 +35,14 @@ class Post(models.Model):
         super().save(*args, **kwargs)
 
     def get_delete_url(self):
-        return reverse('post_delete_url', kwargs={'slug': self.slug})
+        return reverse("post_delete_url", kwargs={"slug": self.slug})
 
     def mark_is_edited(self, *args, **kwargs):
         self.is_edited = True
         self.save
 
     class Meta:
-        ordering = ['-date_pub']
+        ordering = ["-date_pub"]
 
 
 class Tag(models.Model):
@@ -50,16 +50,16 @@ class Tag(models.Model):
     slug = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
-        return '{}'.format(self.title)
+        return "{}".format(self.title)
 
     def get_absolute_url(self):
-        return reverse('tag_detail_url', kwargs={'slug': self.slug})
+        return reverse("tag_detail_url", kwargs={"slug": self.slug})
 
     def get_update_url(self):
-        return reverse('tag_update_url', kwargs={'slug': self.slug})
+        return reverse("tag_update_url", kwargs={"slug": self.slug})
 
     def get_delete_url(self):
-        return reverse('tag_delete_url', kwargs={'slug': self.slug})
+        return reverse("tag_delete_url", kwargs={"slug": self.slug})
 
     class Meta:
-        ordering = ['title']
+        ordering = ["title"]

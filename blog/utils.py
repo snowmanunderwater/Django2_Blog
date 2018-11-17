@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from django.views.generic import View
 
-from .models import *
+from .models import reverse
 
 
 class ObjectsDetailMixin:
@@ -37,7 +36,6 @@ class ObjectCreateMixin:
             return redirect(new_obj)
 
         return render(request, self.template, context={"form": bound_form})
-
 
 
 class ObjectUpdateMixin:
